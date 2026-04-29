@@ -1,0 +1,30 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Configuración local de editores
+.vscode/
+.idea/
+
+# Archivos temporales
+*.tmp
+*.log
+*.bak
+
+# Backups/exportaciones de SQL Server
+*.bak
+*.trn
+
+# Archivos generados localmente
+*.zip
+*.rar
+*.7z
+
+# Documentos temporales de Office
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# Credenciales o configuraciones locales
+.env
+*.env
