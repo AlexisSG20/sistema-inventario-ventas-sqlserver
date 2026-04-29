@@ -2,7 +2,7 @@
 
 Proyecto de base de datos relacional desarrollado en **SQL Server / T-SQL**, orientado a simular un caso empresarial de control de ventas, stock e inventario para una empresa retail.
 
-El objetivo del proyecto es demostrar el diseño e implementación de una base de datos profesional con tablas relacionadas, restricciones, datos de prueba, vistas, procedimientos almacenados, funciones, triggers, índices y consultas de negocio.
+El objetivo del proyecto es demostrar el diseño e implementación de una base de datos profesional con tablas relacionadas, restricciones, datos de prueba, vistas, procedimientos almacenados, funciones, triggers, índices, consultas operativas, consultas de reportes, evidencias y diagrama entidad-relación.
 
 ---
 
@@ -24,6 +24,7 @@ El sistema permite registrar productos por categoría y proveedor, controlar el 
 - Crear funciones para cálculos reutilizables.
 - Crear triggers para auditoría automática.
 - Crear índices para mejorar consultas frecuentes.
+- Crear consultas SQL para operaciones diarias y reportes gerenciales.
 - Documentar el proyecto con estructura profesional para GitHub.
 
 ---
@@ -33,6 +34,7 @@ El sistema permite registrar productos por categoría y proveedor, controlar el 
 - SQL Server
 - T-SQL
 - SQL Server Management Studio
+- dbdiagram.io
 - Git
 - GitHub
 
@@ -58,7 +60,12 @@ sistema-inventario-ventas-sqlserver/
 │
 ├── docs/
 │   ├── diagrama-er.png
-│   └── documentacion_tecnica.pdf
+│   └── capturas/
+│       ├── 01-tablas-creadas.png
+│       ├── 02-vistas-procedures-functions.png
+│       ├── 03-registro-venta.png
+│       ├── 04-trigger-auditoria-stock.png
+│       └── 05-consultas-reportes.png
 │
 ├── README.md
 └── .gitignore
@@ -111,6 +118,14 @@ Incluye el registro automático de cambios en stock mediante triggers.
 - `VentaDetalle`
 - `MovimientosInventario`
 - `AuditoriaStock`
+
+---
+
+## Diagrama entidad-relación
+
+El modelo relacional fue diagramado con **dbdiagram.io** para representar las entidades principales, claves primarias, claves foráneas y relaciones entre tablas.
+
+![Diagrama ER](docs/diagrama-er.png)
 
 ---
 
@@ -305,6 +320,30 @@ Incluye consultas para:
 
 ---
 
+## Evidencias del proyecto
+
+### Tablas creadas en SQL Server
+
+![Tablas creadas](docs/capturas/01-tablas-creadas.png)
+
+### Vistas, procedimientos y funciones
+
+![Vistas, procedimientos y funciones](docs/capturas/02-vistas-procedures-functions.png)
+
+### Registro de ventas
+
+![Registro de ventas](docs/capturas/03-registro-venta.png)
+
+### Auditoría automática de stock
+
+![Auditoría automática de stock](docs/capturas/04-trigger-auditoria-stock.png)
+
+### Consultas de reportes
+
+![Consultas de reportes](docs/capturas/05-consultas-reportes.png)
+
+---
+
 ## Orden de ejecución
 
 Ejecutar los scripts en SQL Server Management Studio en el siguiente orden:
@@ -366,6 +405,25 @@ FROM vw_ventas_detalle
 ORDER BY fecha_venta DESC;
 ```
 
+Consultar auditoría de stock:
+
+```sql
+SELECT TOP 10
+    a.fecha_auditoria,
+    t.nombre AS tienda,
+    p.codigo_sku,
+    p.nombre AS producto,
+    a.cantidad_anterior,
+    a.cantidad_nueva,
+    a.accion
+FROM AuditoriaStock a
+INNER JOIN Productos p
+    ON a.producto_id = p.producto_id
+INNER JOIN Tiendas t
+    ON a.tienda_id = t.tienda_id
+ORDER BY a.fecha_auditoria DESC;
+```
+
 ---
 
 ## Reglas de negocio aplicadas
@@ -380,20 +438,9 @@ ORDER BY fecha_venta DESC;
 
 ---
 
-## Evidencias del proyecto
-
-Pendiente por agregar:
-
-- Diagrama entidad-relación.
-- Capturas de ejecución en SQL Server.
-- Capturas de resultados de consultas.
-- Documentación técnica PDF.
-
----
-
 ## Estado del proyecto
 
-Proyecto en desarrollo.
+Proyecto funcional para portafolio.
 
 Avance actual:
 
@@ -405,6 +452,14 @@ Avance actual:
 - Trigger de auditoría implementado.
 - Índices creados.
 - Consultas operativas y de reportes creadas.
+- Capturas de evidencia agregadas.
+- Diagrama entidad-relación agregado.
+
+Pendiente opcional:
+
+- Documentación técnica PDF.
+- Más datos de prueba para reportes históricos.
+- Escenarios adicionales de validación.
 
 ---
 
