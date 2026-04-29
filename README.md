@@ -2,7 +2,7 @@
 
 Proyecto de base de datos relacional desarrollado en **SQL Server / T-SQL**, orientado a simular un caso empresarial de control de ventas, stock e inventario para una empresa retail.
 
-El objetivo del proyecto es demostrar el diseño e implementación de una base de datos profesional con tablas relacionadas, restricciones, datos de prueba, vistas, procedimientos almacenados, funciones, triggers, índices, consultas operativas, consultas de reportes, evidencias y diagrama entidad-relación.
+El objetivo del proyecto es demostrar el diseño e implementación de una base de datos profesional con tablas relacionadas, restricciones, datos de prueba, vistas, procedimientos almacenados, funciones, triggers, índices, consultas operativas, consultas de reportes, evidencias, diagrama entidad-relación y documentación técnica.
 
 ---
 
@@ -60,6 +60,7 @@ sistema-inventario-ventas-sqlserver/
 │
 ├── docs/
 │   ├── diagrama-er.png
+│   ├── documentacion_tecnica.pdf
 │   └── capturas/
 │       ├── 01-tablas-creadas.png
 │       ├── 02-vistas-procedures-functions.png
@@ -70,6 +71,16 @@ sistema-inventario-ventas-sqlserver/
 ├── README.md
 └── .gitignore
 ```
+
+---
+
+## Documentación técnica
+
+La documentación técnica completa del proyecto está disponible en PDF:
+
+[Ver documentación técnica](docs/documentacion_tecnica.pdf)
+
+El documento resume el caso de negocio, arquitectura lógica, modelo de datos, scripts implementados, procesos de negocio, reglas aplicadas, consultas y evidencias del proyecto.
 
 ---
 
@@ -454,12 +465,17 @@ Avance actual:
 - Consultas operativas y de reportes creadas.
 - Capturas de evidencia agregadas.
 - Diagrama entidad-relación agregado.
+- Documentación técnica PDF agregada.
 
-Pendiente opcional:
+Mejoras futuras opcionales:
 
-- Documentación técnica PDF.
-- Más datos de prueba para reportes históricos.
-- Escenarios adicionales de validación.
+- Registrar ventas con múltiples productos en una sola ejecución.
+- Agregar métodos de pago y comprobantes de venta.
+- Agregar transferencias entre tiendas.
+- Agregar compras a proveedores.
+- Cargar más datos históricos para reportes mensuales.
+- Conectar la base de datos a Power BI.
+- Implementar roles y permisos de seguridad.
 
 ---
 
